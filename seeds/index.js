@@ -31,17 +31,21 @@ const seedDB = async() => {
             price,
             images:[
                 { 
-                    url: 'https://res.cloudinary.com/dutkizxmn/image/upload/v1606952809/YelpCamp/10_fjn4cf.jpg',
-                    filename: 'YelpCamp/10_fjn4cf' },
+                    url: 'https://res.cloudinary.com/dutkizxmn/image/upload/v1606957129/YelpCamp/kg8ujpkn1aqip71zkcu9.jpg',
+                    filename: 'YelpCamp/kg8ujpkn1aqip71zkcu9.jpg' },
                 { 
-                    url: 'https://res.cloudinary.com/dutkizxmn/image/upload/v1606952785/YelpCamp/1_e6rv5u.jpg',
-                    filename: 'YelpCamp/1_e6rv5u' },
+                    url: 'https://res.cloudinary.com/dutkizxmn/image/upload/v1606955103/YelpCamp/tt3s9nitcjfuul4msexk.jpg',
+                    filename: 'YelpCamp/tt3s9nitcjfuul4msexk.jpg' },
                 { 
-                    url: 'https://res.cloudinary.com/dutkizxmn/image/upload/v1606952783/YelpCamp/8_ovbrtq.jpg',
-                    filename: 'YelpCamp/8_ovbrtq.jpg' 
+                    url: 'https://res.cloudinary.com/dutkizxmn/image/upload/v1606953091/YelpCamp/xsasxcekuyjzrpdbqfqn.jpg',
+                    filename: 'YelpCamp/xsasxcekuyjzrpdbqfqn.jpg' 
                 } 
             ],
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae fuga incidunt aut nihil amet officiis, cumque necessitatibus ullam assumenda ab quos iste illum optio illo reiciendis earum facere odio porro!'
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae fuga incidunt aut nihil amet officiis, cumque necessitatibus ullam assumenda ab quos iste illum optio illo reiciendis earum facere odio porro!',
+            geometry: {
+                type: 'Point',
+                coordinates: [ -122.9898, 45.5229 ]
+            }
         })
         await camp.save();
     }
