@@ -1,0 +1,80 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Campground</title>
+</head>
+<body> -->
+    <%layout('layouts/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center">New Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds" method="POST" novalidate class="validate-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" name="campground[title]" id="title" placeholder="campground title" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a valid Campground Title.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="campground[location]" id="location" placeholder="campground location" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a valid Campground Location.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Campground Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input type="text" name="campground[price]" class="form-control" id="price" placeholder="0.00" aria-describedat="price-label" step="0.01" aria-label="price" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please provide a price.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" name="campground[description]" id="description" placeholder="campground description" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide Campground description.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <!-- <label class="form-label" for="image">Image Url</label>
+                    <input class="form-control" type="text" name="campground[image]" id="image" placeholder="campground image" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a Campground Image Url.
+                    </div> -->
+                    <label class="form-label" for="image">Upload Images</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="image" id="image" multiple>
+                        <label class="custom-file-label" for="image">Choose Image(s)..</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Add Campground</button>
+                    <button type="submit" class="btn btn-danger"><a href="/campgrounds" class="text-light">Cancel</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+<!-- </body>
+</html> -->
