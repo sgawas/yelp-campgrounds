@@ -20,12 +20,18 @@ body{
     border-bottom: 0.25rem solid transparent;
 }
 
-.nav-link:hover {
+/* .nav-link:hover {
     border-bottom-color: rgba(255, 255, 255, 0.5);
     color: rgba(255, 255, 255, 0.5);
+} */
+
+
+.active {
+    color: white;
+    border-bottom-color: white;
 }
 
-.nav-link:active {
+.nav-link:hover {
     color: white;
     border-bottom-color: white;
 }
@@ -33,4 +39,10 @@ body{
 .btn-secondary, .btn-secondary:hover{
     color: #333;
     text-shadow: none;
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary {
+    color: #285e8e;
+    background-color: #00b3db;
+    border-color: #285e8e; /*set the color you want here*/
 }
