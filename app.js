@@ -13,6 +13,7 @@ const passport = require('passport');
 const localPassport = require('passport-local');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
+const MongoStore = require('connect-mongo')(session);
 
 const ExpressError = require('./utils/ExpressError');
 const campgroundRoutes = require('./routes/campgroundRoutes');
@@ -22,20 +23,10 @@ const User = require('./models/user');
 
 const app = express();
 
-const sessionConfig = {
-    name: 'sessionId',
-    secret: 'thisismysecret',
-    resave: false,
-    saveUninitialized: true,
-    secure: true,
-    cookie: {
-        httpOnly: true,
-        expires: Date.now() + 1000 * 60 * 60 * 24,
-        maxAge: 1000 * 60 * 60 * 24
-    }
-}
+const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
+const secret = process.env.SECRET || 'thisismysecret';
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp', 
+mongoose.connect(dbURL, 
 { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
@@ -98,6 +89,30 @@ app.use(
         },
     })
 );
+
+const store = new MongoStore({
+    url: dbURL,
+    secret,
+    touchAfter: 24 * 3600 // time period in seconds
+})
+
+store.on('error', function(e){
+    console.log("Session Store Error: ", e);
+})
+
+const sessionConfig = {
+    store,
+    name: 'sessionId',
+    secret,
+    resave: false,
+    saveUninitialized: true,
+    secure: true,
+    cookie: {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24,
+        maxAge: 1000 * 60 * 60 * 24
+    }
+}
 
 app.use(session(sessionConfig));
 app.use(express.json());
