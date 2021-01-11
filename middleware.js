@@ -9,7 +9,7 @@ module.exports.isUserAuthenticated = (req, res, next) => {
     if(!req.isAuthenticated()){
         req.session.returnTo = req.originalUrl;
         req.flash('error', 'SignIn or Register to access Campgrounds.');
-        return res.redirect('/');
+        return res.redirect('/login');
     }
     next();
 }

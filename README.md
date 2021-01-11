@@ -16,3 +16,11 @@ https://floating-dusk-09578.herokuapp.com/campgrounds
 
 ##### Start
 1. `npm start`
+
+### heroku commands
+1. heroku -v
+2. heroku login or heroku login -i
+3. heroku create
+4. git remote add heroku <heroku git link>
+5. git push heroku master
+6. heroku open
